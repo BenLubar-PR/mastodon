@@ -112,7 +112,6 @@ class MediaAttachment < ApplicationRecord
   include Attachmentable
 
   validates :account, presence: true
-  validates :description, length: { maximum: 420 }, if: :local?
 
   scope :attached,   -> { where.not(status_id: nil).or(where.not(scheduled_status_id: nil)) }
   scope :unattached, -> { where(status_id: nil, scheduled_status_id: nil) }
@@ -211,7 +210,7 @@ class MediaAttachment < ApplicationRecord
   end
 
   def prepare_description
-    self.description = description.strip[0...420] unless description.nil?
+    self.description = description.strip unless description.nil?
   end
 
   def set_type_and_extension

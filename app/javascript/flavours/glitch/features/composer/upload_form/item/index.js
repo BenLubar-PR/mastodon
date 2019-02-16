@@ -170,7 +170,6 @@ export default class ComposerUploadFormItem extends React.PureComponent {
               <label>
                 <span style={{ display: 'none' }}><FormattedMessage {...messages.description} /></span>
                 <textarea
-                  maxLength={420}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   onFocus={handleFocus}
