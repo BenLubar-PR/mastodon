@@ -15,7 +15,7 @@ module RoutingHelper
   def full_asset_url(source, **options)
     source = ActionController::Base.helpers.asset_url(source, options) unless use_storage?
 
-    URI.join(root_url, source).to_s
+    URI.join(ENV.fetch("LOCAL_ROOT_URL") { root_url }, source).to_s
   end
 
   def full_pack_url(source, **options)
