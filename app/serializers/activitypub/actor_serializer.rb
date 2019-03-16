@@ -27,7 +27,7 @@ class ActivityPub::ActorSerializer < ActivityPub::Serializer
     attributes :shared_inbox
 
     def shared_inbox
-      inbox_url
+      inbox_url.sub('https://mastodon.lubar.me/', 'https://mastodon.local.lubar.me/')
     end
   end
 
@@ -61,7 +61,7 @@ class ActivityPub::ActorSerializer < ActivityPub::Serializer
   end
 
   def inbox
-    object.instance_actor? ? instance_actor_inbox_url : account_inbox_url(object)
+    (object.instance_actor? ? instance_actor_inbox_url : account_inbox_url(object)).sub('https://mastodon.lubar.me/', 'https://mastodon.local.lubar.me/')
   end
 
   def outbox
