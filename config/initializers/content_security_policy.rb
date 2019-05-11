@@ -16,6 +16,14 @@ if Rails.env.production?
     attachments_host = nil
   end
 
+  data_hosts << 'https://mastodon.lubar.me'
+  data_hosts << 'https://mastodon.local.lubar.me'
+  data_hosts << 'https://ipfs.lubar.me'
+  data_hosts << 'https://ipfs.local.lubar.me'
+  data_hosts << 'https://cloudflare-ipfs.com'
+  data_hosts << 'https://ipfs.io'
+  data_hosts << 'https://gateway.ipfs.io'
+  data_hosts << 'http://127.0.0.1:8080'
   data_hosts << attachments_host unless attachments_host.nil?
 
   if ENV['PAPERCLIP_ROOT_URL']
