@@ -113,7 +113,6 @@ class Upload extends ImmutablePureComponent {
                   <textarea
                     placeholder={intl.formatMessage(messages.description)}
                     value={description}
-                    maxLength={420}
                     onFocus={this.handleInputFocus}
                     onChange={this.handleInputChange}
                     onBlur={this.handleInputBlur}
